@@ -3,18 +3,18 @@ import pdb
 import matplotlib.pyplot as plt
 from math import atan
 
-# """ Design Variables """
+""" Design Variables """
 
 alpha_w = -8.0
 alpha0_t = 0                
-cl_alpha = 15.0/1.3                     #""" Airfoils used in wing and Tail """
+cl_alpha = 15.0/1.3                     # Airfoils used in wing and Tail
 cl_alpha_t = 2*np.pi**2/180
 Cm_0w = -0.2
 Cm_af =0 
 
 
 AR_W = 12.3
-S   = 10.375                            # """ Wing and Tail Dimensions """
+S   = 10.375                            # Wing and Tail Dimensions
 V_h = 0.497
 l_t = 4.0
 b = np.sqrt(AR_W*S)
@@ -41,7 +41,7 @@ CL_alpha_t = cl_alpha_t/(1 + 57.3*cl_alpha_t/(np.pi*AR_t*e))
 
 CL_alpha    = CL_alpha_w + eta*(S_t/S)*(1-ea)*CL_alpha_t                        
 CL_0        = CL_alpha_w*(i_w-alpha0_w) + eta*(S_t/S)*CL_alpha_t*(i_t)
-a0 	    = alpha_w*CL_alpha_w/CL_alpha + eta*(S_t/S)*CL_alpha_t*alpha0_t                   # Alpha(L=0) for wing & tail
+alpha0 	    = alpha_w*CL_alpha_w/CL_alpha + eta*(S_t/S)*CL_alpha_t*alpha0_t           # Alpha(L=0) for wing & tail
 
 print "CL0 ", CL_0
 
