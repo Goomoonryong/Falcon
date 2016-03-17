@@ -28,8 +28,7 @@ eta = 0.9
 
 i_w = 0
 i_t = -1.98010788483
-eps0 = 1.6          # epsilon0
-eps_al = 0          # d(epsilon)/d(alpha)
+
 
 x_cg = -0.3928/c
 x_ac = -c/(4*c)
@@ -40,11 +39,10 @@ x_ac = -c/(4*c)
 CL_alpha_w = cl_alpha/(1 + 57.3*cl_alpha/(np.pi*AR_W*e))
 CL_alpha_t = cl_alpha_t/(1 + 57.3*cl_alpha_t/(np.pi*AR_t*e))
 
-epso = CL_alpha_w*(i_w - alpha_w)*57.3/(np.pi*AR_W*e)
-eps_al = CL_alpha_w*57.3/(np.pi*AR_W*e)
+eps0 = CL_alpha_w*(i_w - alpha_w)*57.3/(np.pi*AR_W*e)         # Epsilon 0
+eps_al = CL_alpha_w*57.3/(np.pi*AR_W*e)                       # d(epsilon)/d(alpha)
 
 CL_alpha = CL_alpha_w + eta*(S_t/S)*CL_alpha_t*(1 - eps_al)
-print 'CL_alpha', CL_alpha
 CL_0 = CL_alpha_w*(i_w-alpha_w) + eta*(S_t/S)*CL_alpha_t*(i_t - eps0)
 alpha0 	= -CL_0/CL_alpha     # Alpha(L=0) wing and tail
 
