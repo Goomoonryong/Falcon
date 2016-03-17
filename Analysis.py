@@ -26,12 +26,12 @@ V_h = S_t*l_t/(S*c)
 e = 0.92
 eta = 0.9
 
-i_w = 0
-i_t = -1.98010788483
+i_w = 0                     # Wing setting Angle
+i_t = -1.98010788483        # Tail Setting Angle
 
 
 x_cg = -0.3928/c
-x_ac = -c/(4*c)
+x_ac = -c/(4*c) 
 
 
 
@@ -44,7 +44,7 @@ eps_al = CL_alpha_w*57.3/(np.pi*AR_W*e)                       # d(epsilon)/d(alp
 
 CL_alpha = CL_alpha_w + eta*(S_t/S)*CL_alpha_t*(1 - eps_al)
 CL_0 = CL_alpha_w*(i_w-alpha_w) + eta*(S_t/S)*CL_alpha_t*(i_t - eps0)
-alpha0 	= -CL_0/CL_alpha     # Alpha(L=0) wing and tail
+alpha0 	= -CL_0/CL_alpha                                      # Alpha(L=0) wing and tail
 
 Cm_alpha = CL_alpha*(x_ac - x_cg) - eta*V_h*(1 - eps_al)*CL_alpha_t + Cm_af
 Cm_0     = Cm_0w + CL_0*(x_ac - x_cg) - eta*V_h*(i_t - eps0)*CL_alpha_t + Cm_f
@@ -57,6 +57,8 @@ Des_Vh = (x_ac - Cm_af/CL_alpha - Des_x_NP)/(eta*(1 - eps_al)*CL_alpha_t/CL_alph
 Des_lt = Des_Vh*S*c/S_t
 print 'x_NP', x_NP
 print 'Desired lt', Des_lt
+
+
 """ Trim Conditons """
 
 CLt_delta = 0.04
